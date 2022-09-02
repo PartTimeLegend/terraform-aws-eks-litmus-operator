@@ -2,8 +2,13 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPartTimeLegend%2Flitmus-operator-terraform.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FPartTimeLegend%2Flitmus-operator-terraform?ref=badge_shield)
 
 
-Little test and play with setting up Litmus for Kubernetes using Terraform to deploy the Helm Chart.
+A simple module for installing Litmus chaos testing tools into your EKS cluster.
 
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FPartTimeLegend%2Flitmus-operator-terraform.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FPartTimeLegend%2Flitmus-operator-terraform?ref=badge_large)
+```terraform
+module "eks-litmus-operator" {
+  source          = "PartTimeLegend/eks-litmus-operator/aws"
+  assume_role_arn = "arn:aws:iam::123456789012:role/terraform-deploy-role"
+  aws_region      = "us-east-1"
+  cluster_name    = "my-eks-cluster
+}
+```
